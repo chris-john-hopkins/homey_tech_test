@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Global Styles */
 body {
   @apply bg-gray-100 text-gray-900 antialiased;
@@ -13,17 +9,21 @@ h1, h2, h3, h4, h5, h6 {
   @apply font-semibold text-gray-800;
 }
 
+h1 {
+  @apply text-3xl
+}
+
 /* Buttons */
 .btn {
   @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition;
 }
 
 .btn-primary {
-  @apply bg-black text-white hover:bg-gray-800;
+  @apply bg-black text-white hover:bg-gray-800 p-2 rounded;
 }
 
 .btn-secondary {
-  @apply bg-gray-700 text-white hover:bg-gray-600;
+  @apply bg-gray-700 text-white hover:bg-gray-600 p-2 rounded;
 }
 
 /* Forms */

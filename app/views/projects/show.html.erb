@@ -1,5 +1,25 @@
-<p style="color: green"><%= notice %></p>
-<%= render @project %>
-<div>
-  <%= link_to "Back to projects", projects_path %>
-</div>
+<p class="text-green-500"><%= notice %></p>
+  <!-- Back to Projects Link -->
+<article class="grid grid-cols-1 gap-6">
+  <nav class="text-center mt-4">
+    <%= link_to "Back to projects", projects_path, class: "btn-secondary" %>
+  </nav>
+  <!-- Project Details -->
+  <%= render @project %>
+
+  <!-- Comments Section -->
+  <section id="comments" class="bg-white p-4 shadow-md rounded-lg">
+    <%= turbo_stream_from @project %>
+    <h2 class="mb-2">Comments</h2>
+
+    <div id="project_comments" class="space-y-4">
+      <%= render @project.comments %>
+    </div>
+  </section>
+
+  <!-- Comment Form -->
+  <section id="comment_form" class="bg-white p-4 shadow-md rounded-lg">
+    <h3>Add a Comment</h3>
+    <%= render partial: "comments/form", locals: { commentable: @project, comment: @project.comments.build } %>
+  </section>
+</article>

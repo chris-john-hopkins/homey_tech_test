@@ -7,7 +7,7 @@
   <!-- Project Details -->
   <%= render @project %>
 
-  <%= render "project_transitions/form", project: @project %>
+  <%= render "project_transitions/form", project: @project, state_creator: @state_creator %>
 
   <!-- Comments Section -->
   <section id="comments" class="bg-white p-4 shadow-md rounded-lg">

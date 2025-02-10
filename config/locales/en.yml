@@ -28,4 +28,5 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  project_comments:
+    project_transition_created_automated_body: "Project status updated to %{status}"

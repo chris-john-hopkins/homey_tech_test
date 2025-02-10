@@ -1,10 +1,4 @@
 class Project < ApplicationRecord
-  include Statesman::Adapters::ActiveRecordQueries[
-    transition_class: ProjectTransition,
-    initial_state: :draft
-  ]
-  include Stateable
-
   belongs_to :creator, class_name: "User", foreign_key: "user_id", inverse_of: :projects
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :project_transitions, inverse_of: :project, autosave: false, dependent: :destroy
@@ -13,6 +7,12 @@ class Project < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :deadline, presence: true
+
+  include Statesman::Adapters::ActiveRecordQueries[
+    transition_class: ProjectTransition,
+    initial_state: :draft
+  ]
+  include Stateable
 
   def state_machine
     @state_machine ||= ProjectStateMachine.new(self, transition_class: ProjectTransition)

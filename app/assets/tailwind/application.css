@@ -39,3 +39,20 @@ input::placeholder, textarea::placeholder {
 .card {
   @apply bg-white shadow-md rounded-xl p-6;
 }
+
+/* Comments */ 
+.comment.email {
+  @apply text-sm text-gray-600 font-semibold
+}
+
+.comment time {
+  @apply text-xs text-gray-500;
+}
+
+.comment.system-comment {
+  @apply bg-black text-white;
+}
+
+comment.system-comment .email {
+  @apply text-white;
+}

@@ -1,9 +1,19 @@
 <%= form_with url: project_project_transitions_path(@project), method: :post, class: "bg-white p-4 shadow-md rounded-lg flex items-center gap-4" do |form| %>
   <%= form.label :state, "Change Project State", class: "text-gray-700 font-semibold" %>
   
-  <%= form.select :state, options_for_select(ProjectStateMachine.states, @project.current_state), {}, 
+  <%= form.select :state, options_for_select(ProjectStateMachine.states + ['blah'], @project.current_state), {}, 
       class: "border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" %>
   
   <%= form.submit "Update State", 
       class: "bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 focus:ring focus:ring-blue-300 transition ease-in-out duration-200" %>
+<% end %>
+<% if state_creator&.errors&.any? %>
+  <div class="bg-red-100 text-red-700 p-2 rounded-md mb-4">
+    <p><strong><%= pluralize(state_creator.errors.count, "error") %> prevented this comment from being saved:</strong></p>
+    <ul>
+      <% state_creator.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

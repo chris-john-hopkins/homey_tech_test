@@ -4,6 +4,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project
+                .includes(
+                  :rich_text_description,
+                  :project_transitions,
+                  comments: [ :creator ]
+                ).find(params[:id])
   end
 end

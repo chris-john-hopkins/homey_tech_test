@@ -1,7 +1,7 @@
 <%= form_with url: project_project_transitions_path(@project), method: :post, class: "bg-white p-4 shadow-md rounded-lg flex items-center gap-4" do |form| %>
   <%= form.label :state, "Change Project State", class: "text-gray-700 font-semibold" %>
   
-  <%= form.select :state, options_for_select(ProjectStateMachine.states + ['blah'], @project.current_state), {}, 
+  <%= form.select :state, options_for_select(ProjectStateMachine.states, @project.current_state), {}, 
       class: "border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" %>
   
   <%= form.submit "Update State", 

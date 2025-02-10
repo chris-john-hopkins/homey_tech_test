@@ -4,6 +4,7 @@ RSpec.describe Project, type: :model do
   describe "associations" do
     it { should belong_to(:creator).class_name("User").with_foreign_key("user_id") }
     it { should have_rich_text(:description) }
+    it { should have_many(:comments) }
   end
 
   describe "validations" do

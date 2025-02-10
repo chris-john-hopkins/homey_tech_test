@@ -1,0 +1,12 @@
+<article id="<%= dom_id(comment) %>" class="comment <%= 'system-comment' if comment.auto_generated? %> bg-gray-300 p-4 rounded-lg shadow-md">
+  <p class="text-sm text-gray-600 font-semibold">
+    <%= comment.creator.email %>
+  </p>
+  <time datetime="<%= comment.created_at.iso8601 %>" class="text-xs text-gray-500">
+    <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %>
+  </time>
+
+  <p class="text-gray-800">
+    <%= comment.body %>
+  </p>
+</article>

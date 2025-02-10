@@ -1,0 +1,19 @@
+<%= form_with model: [commentable, comment], id: "comment_form" do |form| %>
+  <% if comment.errors.any? %>
+    <div class="bg-red-100 text-red-700 p-2 rounded-md mb-4">
+      <p><strong><%= pluralize(comment.errors.count, "error") %> prevented this comment from being saved:</strong></p>
+      <ul>
+        <% comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :body, "Add a Comment:", class: "hidden block font-semibold text-gray-700" %>
+    <%= form.rich_text_area :body, class: "w-full border-gray-300 rounded-md shadow-sm" %>
+  </div>
+
+  <%= form.submit "Post Comment", class: "btn-primary" %>
+<% end %>

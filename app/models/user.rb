@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects, foreign_key: "user_id", inverse_of: :creator
+  has_many :comments, foreign_key: "user_id", inverse_of: :creator
 end

@@ -7,10 +7,6 @@
 
 <div class="grid grid-cols-1 sm:grid-cols-2 items-center mb-6">
   <h1 class="mb-2">Projects</h1>
-  <div class="sm:text-right">
-    <%= link_to "New project", new_project_path, class: "btn-primary" %>
-  </div>
-
   <!-- Projects Grid -->
   <section id="projects" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     <% @projects.each do |project| %>

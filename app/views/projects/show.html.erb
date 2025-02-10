@@ -7,6 +7,8 @@
   <!-- Project Details -->
   <%= render @project %>
 
+  <%= render "project_transitions/form", project: @project %>
+
   <!-- Comments Section -->
   <section id="comments" class="bg-white p-4 shadow-md rounded-lg">
     <%= turbo_stream_from @project %>

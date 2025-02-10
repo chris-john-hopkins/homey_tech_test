@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_10_155341) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_10_194149) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -63,6 +63,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_10_155341) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "project_transitions", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.string "to_state"
+    t.integer "sort_key"
+    t.jsonb "metadata"
+    t.boolean "most_recent", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_transitions_on_project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.datetime "deadline"
@@ -86,5 +97,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_10_155341) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "project_transitions", "projects"
   add_foreign_key "projects", "users"
 end

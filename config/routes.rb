@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :projects, only: [ :show, :index ] do
+    resources :project_transitions, only: [ :create ]
     resources :comments, controller: "project_comments", only: [ :create ]
   end
 

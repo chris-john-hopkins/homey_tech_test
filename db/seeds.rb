@@ -3,7 +3,7 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+User.find_or_create_by!(email: 'user@example.com') do |u|
+  u.password = 'password123'
+  u.password_confirmation = 'password123'
+end

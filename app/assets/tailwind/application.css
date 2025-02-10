@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+body {
+  @apply bg-gray-100 text-gray-900 antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-semibold text-gray-800;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition;
+}
+
+.btn-primary {
+  @apply bg-black text-white hover:bg-gray-800;
+}
+
+.btn-secondary {
+  @apply bg-gray-700 text-white hover:bg-gray-600;
+}
+
+/* Forms */
+input, textarea, select {
+  @apply bg-gray-200 border-gray-400 text-gray-900 rounded-lg px-3 py-2 focus:ring-2 focus:ring-gray-500 focus:border-gray-500;
+}
+
+input::placeholder, textarea::placeholder {
+  @apply text-gray-500;
+}
+
+/* Card */
+.card {
+  @apply bg-white shadow-md rounded-xl p-6;
+}

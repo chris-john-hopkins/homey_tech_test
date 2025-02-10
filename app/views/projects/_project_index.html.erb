@@ -1,0 +1,5 @@
+<div id="<%= dom_id(project) %>" class="project-card p-6 bg-white shadow-md rounded-md">
+  <h2 class="text-xl font-semibold text-gray-900"><%= project.title %></h2>
+  <p class="text-sm text-gray-600">Deadline: <%= project.deadline.strftime('%B %d, %Y') %></p>
+  <%= truncate(strip_tags(project.description.to_s), length: 200, separator: ' ', omission: '...') %>
+</div>

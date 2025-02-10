@@ -12,7 +12,7 @@
     <% @projects.each do |project| %>
       <%= link_to project do %>
         <article>
-          <%= render project %>
+          <%= render partial: 'project_index', locals: { project: } %>
         </article>
       <% end %>
     <% end %>
